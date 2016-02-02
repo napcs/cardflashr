@@ -12,8 +12,29 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :deck_id %><br>
+      <%= f.select :deck_id, @decks.collect{|d| [d.name, d.id] } %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :background_color %><br>
+    <%= f.color_field :background_color %>
+  </div>
+  <div class="field">
+    <%= f.label :foreground_color %><br>
+    <%= f.color_field :foreground_color %>
+  </div>
+  <div class="field">
+    <%= f.label :font %><br>
+    <%= f.text_field :font %>
+  </div>
+  <div class="field">
+    <%= f.label :font_size %><br>
+    <%= f.text_field :font_size %>
   </div>
   <div class="field">
     <%= f.label :question_text %><br>
@@ -22,10 +43,6 @@
   <div class="field">
     <%= f.label :answer_text %><br>
     <%= f.text_area :answer_text %>
-  </div>
-  <div class="field">
-    <%= f.label :deck_id %><br>
-    <%= f.text_field :deck_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

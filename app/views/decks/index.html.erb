@@ -6,9 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
-      <th>Shared</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,12 +13,9 @@
   <tbody>
     <% @decks.each do |deck| %>
       <tr>
-        <td><%= deck.name %></td>
-        <td><%= deck.description %></td>
-        <td><%= deck.shared %></td>
-        <td><%= deck.user %></td>
-        <td><%= link_to 'Show', deck %></td>
+        <td><%= link_to deck.name, deck %></td>
         <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
+        <td><%= link_to 'Manage Cards', deck_cards_path(deck) %></td>
         <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

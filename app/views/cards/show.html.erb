@@ -1,24 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @card.name %>
-</p>
+<%= render partial: "/cards/card" , locals: {card: @card }%>
 
 <p>
-  <strong>Question text:</strong>
-  <%= @card.question_text %>
+  <%= link_to 'Edit this card', edit_deck_card_path(@deck, @card) %> |
+  <%= link_to 'Back to the deck', deck_cards_path(@deck) %>
 </p>
-
-<p>
-  <strong>Answer text:</strong>
-  <%= @card.answer_text %>
-</p>
-
-<p>
-  <strong>Deck:</strong>
-  <%= @card.deck %>
-</p>
-
-<%= link_to 'Edit', edit_deck_card_path(@deck, @card) %> |
-<%= link_to 'Back', deck_cards_path(@deck) %>

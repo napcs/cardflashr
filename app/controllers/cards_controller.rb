@@ -1,6 +1,8 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_deck
   before_action :set_card, only: [:show, :edit, :update, :destroy]
+  before_action :set_decks, only: [:new, :edit, :create, :update]
 
   # GET /cards
   # GET /cards.json
@@ -15,7 +17,7 @@ class CardsController < ApplicationController
 
   # GET /decks/1/cards/new
   def new
-    @card = Card.new
+    @card = Card.new background_color: "#FFFFFF", foreground_color: "#333333", font_size: "16pt", font: "Arial"
   end
 
   # GET /decks/1/cards/1/edit
@@ -68,6 +70,10 @@ class CardsController < ApplicationController
       @deck = current_user.decks.find(params[:deck_id])
     end
 
+    def set_decks
+      @decks = current_user.decks
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_card
       @card = @deck.cards.find(params[:id])
@@ -75,6 +81,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:name, :question_text, :answer_text, :deck_id)
+      params.require(:card).permit(:name, :question_text, :answer_text, :deck_id, :font, :font_size, :background_color, :foreground_color)
     end
 end

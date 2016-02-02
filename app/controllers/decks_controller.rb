@@ -1,10 +1,11 @@
 class DecksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
 
   # GET /decks
   # GET /decks.json
   def index
-    @decks = Deck.all
+    @decks = current_user.decks.all
   end
 
   # GET /decks/1
@@ -24,7 +25,7 @@ class DecksController < ApplicationController
   # POST /decks
   # POST /decks.json
   def create
-    @deck = Deck.new(deck_params)
+    @deck = current_user.decks.new(deck_params)
 
     respond_to do |format|
       if @deck.save
@@ -64,7 +65,7 @@ class DecksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
-      @deck = Deck.find(params[:id])
+      @deck = current_user.decks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

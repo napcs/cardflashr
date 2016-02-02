@@ -1,24 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @deck.name %>
-</p>
+<h2> <%= @deck.name %></h2>
 
 <p>
-  <strong>Description:</strong>
   <%= @deck.description %>
 </p>
 
-<p>
-  <strong>Shared:</strong>
-  <%= @deck.shared %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @deck.user %>
-</p>
-
 <%= link_to 'Edit', edit_deck_path(@deck) %> |
+<%= link_to 'Manage', deck_cards_path(@deck) %> |
+<%= link_to 'View', player_path(@deck) %> |
 <%= link_to 'Back', decks_path %>

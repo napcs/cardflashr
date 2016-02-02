@@ -1,28 +1,15 @@
-<div id="deck_ui">
-  <div class="card">
-    <div class="front">
-      <%= @card.question_text %>
-    </div>
+<% if @cards.any? %>
 
-    <div class="back">
-      <%= @card.answer_text %>
-    </div>
+  <div id="deck_ui">
+    <%= render partial: "/cards/card" , locals: {card: @card }%>
 
+    <div class="nav">
+      <%= link_to_previous_page @cards, 'Previous' %>
+      <%= link_to_next_page @cards, 'Next' %>
+    </div>
   </div>
 
+<% else %>
+  <p>This deck has no cards.</p>
+<% end %>
 
-  <div class="nav">
-    <%= link_to_previous_page @cards, 'Previous' %>
-    <%= link_to_next_page @cards, 'Next' %>
-  </div>
-</div>
-
-<script>
-  var card = $(".card");
-  card.find(".back").hide();
-  card.on("click", function() {
-    card.find(".back").toggle();
-    card.find(".front").toggle();
-  });
-
-</script>

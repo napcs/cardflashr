@@ -1,0 +1,21 @@
+<div class="card" <%= style_for card %>>
+  <div class="front">
+    <%= card.question_text %>
+  </div>
+
+  <div class="back">
+    <%= card.answer_text %>
+  </div>
+
+</div>
+
+
+<script>
+  var card = $(".card");
+  card.find(".back").hide();
+  card.on("click", function() {
+    card.find(".back").toggle();
+    card.find(".front").toggle();
+  });
+
+</script>
