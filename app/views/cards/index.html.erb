@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Question text</th>
+      <th>Answer text</th>
+      <th>Deck</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.name %></td>
+        <td><%= card.question_text %></td>
+        <td><%= card.answer_text %></td>
+        <td><%= link_to 'Show', [@deck, card] %></td>
+        <td><%= link_to 'Edit', edit_deck_card_path(@deck, card) %></td>
+        <td><%= link_to 'Destroy', [@deck, card], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Card', new_deck_card_path(@deck) %>

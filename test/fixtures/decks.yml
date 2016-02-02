@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+private:
+  name: Private
+  description: My private deck
+  shared: false
+  user: one
+
+shared:
+  name: Shared
+  description: My shared deck
+  shared: true
+  user: one

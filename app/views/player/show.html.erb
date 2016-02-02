@@ -1,0 +1,28 @@
+<div id="deck_ui">
+  <div class="card">
+    <div class="front">
+      <%= @card.question_text %>
+    </div>
+
+    <div class="back">
+      <%= @card.answer_text %>
+    </div>
+
+  </div>
+
+
+  <div class="nav">
+    <%= link_to_previous_page @cards, 'Previous' %>
+    <%= link_to_next_page @cards, 'Next' %>
+  </div>
+</div>
+
+<script>
+  var card = $(".card");
+  card.find(".back").hide();
+  card.on("click", function() {
+    card.find(".back").toggle();
+    card.find(".front").toggle();
+  });
+
+</script>

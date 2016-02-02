@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: First card
+  question_text: 1 + 1
+  answer_text: 2
+  deck: private
+
+two:
+  name: Second card
+  question_text: 2 + 2
+  answer_text: 4
+  deck: private
