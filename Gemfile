@@ -19,6 +19,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google'
 
+gem 'react-rails', '~> 1.6.0'
 gem 'kaminari'
 
 # Use jquery as the JavaScript library

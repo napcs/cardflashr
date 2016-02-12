@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= render partial: "/cards/card" , locals: {card: @card }%>
+<%= react_component('Card', @card, {prerender: true}) %>
 
 <p>
   <%= link_to 'Edit this card', edit_deck_card_path(@deck, @card) %> |

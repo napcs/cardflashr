@@ -1,8 +1,20 @@
 #deck_ui {
-  width: 960px;
-  margin: auto;
+  display: flex;           /* establish flex container */
+  flex-direction: column;  /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;     /* center items horizontally, in this case */
 }
+
+.player {
+  display: flex;           /* establish flex container */
+  flex-direction: row;  /* make main axis vertical */
+}
+
 .card {
+  display: flex;           /* establish flex container */
+  flex-direction: column;  /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;     /* center items horizontally, in this case */
   border: 1px solid #ddd;
   box-shadow: 5px 5px 5px #ddd;
   height: 240px;

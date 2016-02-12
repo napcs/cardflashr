@@ -1,15 +1,22 @@
-<% if @cards.any? %>
 
   <div id="deck_ui">
-    <%= render partial: "/cards/card" , locals: {card: @card }%>
+    <%= react_component('Player', {deck_id: @deck.id,
+                                   cardIndex: @card_index,
+                                   card: @card,
+                                   numberOfCards: @cards.length},
+                                   {prerender: true}) %>
 
     <div class="nav">
-      <%= link_to_previous_page @cards, 'Previous' %>
-      <%= link_to_next_page @cards, 'Next' %>
+      <noscript>
+      <% if @card_index > 0 %>
+        <%= link_to "Previous", (player_path @deck, card: (@card_index - 1) ) %>
+      <% end %>
+
+      <% if @card_index + 1 < session[:cards].length %>
+        <%= link_to "Next", (player_path @deck, card: (@card_index + 1) ) %>
+      <% end %>
+
     </div>
   </div>
 
-<% else %>
-  <p>This deck has no cards.</p>
-<% end %>
 
