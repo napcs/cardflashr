@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Flashcards</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if user_signed_in? %>
-    <p>Welcome <%= current_user.email %></p>
-  <% else %>
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-  <% end %>
-<%= yield %>
+<html lang="en-US">
+  <head>
+    <title>Flashcards</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>CardFlashr</h1>
+      </header>
 
-</body>
+      <nav>
+        <%=link_to "Home", "/" %>
+        <% if user_signed_in? %>
+
+          <%=link_to "My Decks", decks_path %>
+          <span class="account">Welcome <%= current_user.email %></span>
+        <% else %>
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        <% end %>
+      </nav>
+
+    <main role="main">
+      <%= yield %>
+    </main>
+    </div>
+
+  </body>
 </html>

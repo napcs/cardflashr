@@ -1,4 +1,81 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
 
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #ddd;
+  color: #555;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+}
+
+.container {
+  background-color: #fff;
+  padding: 1em;
+}
+
+@media all and (min-width: 300px) {
+
+  nav {
+    border-bottom: 1px solid #ddd;
+		display: flex;           /* establish flex container */
+		justify-content: flex-start;
+
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+    padding: 0.25em;
+
+    .account {order: 1 }
+    a {order: 2}
+
+    a, .account {
+      flex: flex-grow;
+    }
+  }
+
+
+}
+
+@media all and (min-width: 700px) {
+  .container {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  nav {
+    flex-direction: row;
+
+    .account {order: 2 }
+    a {order: 1}
+  }
+}
+
+@media all and (min-width: 960px) {
+  nav {
+
+    a {margin-right: 1em;}
+
+    // make the username go all the way to the right.
+    .account { margin-left: auto; align-self: flex-end; }
+  }
+}
+
+nav {
+
+  a, span {
+    padding: 0.5em;
+    text-decoration: none;
+  }
+
+  a {
+    border: 1px solid #333;
+  }
+}
 #notice {
   color: green;
 }
