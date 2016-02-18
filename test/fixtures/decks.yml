@@ -5,9 +5,11 @@ private:
   description: My private deck
   shared: false
   user: one
+  category: math
 
 shared:
   name: Shared
   description: My shared deck
   shared: true
   user: one
+  category: math

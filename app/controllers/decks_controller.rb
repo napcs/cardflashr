@@ -1,6 +1,7 @@
 class DecksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :edit, :create, :update]
 
   # GET /decks
   # GET /decks.json
@@ -66,6 +67,10 @@ class DecksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
       @deck = current_user.decks.find(params[:id])
+    end
+
+    def set_categories
+      @categories = Category.all.collect{|c| [c.name, c.id] }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

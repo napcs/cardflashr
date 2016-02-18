@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-    def authenticate_user!
-    end
+    #def authenticate_user!
+    #end
 
-    def current_user
-      @current_user = User.first
-    end
+    #def current_user
+      #@current_user = User.first
+    #end
 end

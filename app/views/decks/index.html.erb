@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Decks</h1>
+<h1>My Decks</h1>
 
 <table>
   <thead>
@@ -16,7 +15,7 @@
         <td><%= link_to deck.name, deck %></td>
         <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
         <td><%= link_to 'Manage Cards', deck_cards_path(deck) %></td>
-        <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure you want to remove this deck and all its cards?' } %></td>
       </tr>
     <% end %>
   </tbody>
