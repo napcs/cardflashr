@@ -47,6 +47,7 @@ var Player = React.createClass({
       <div className="player">
         {backButton}
         <Card
+          key={this.state.card.id}
           answer_text={this.state.card.answer_text}
           question_text={this.state.card.question_text}
           background_color={this.state.card.background_color}

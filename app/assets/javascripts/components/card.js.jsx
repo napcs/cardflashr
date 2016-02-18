@@ -3,6 +3,7 @@ var Card = React.createClass({
     return {showAnswer: false};
   },
 
+
   propTypes: {
     name: React.PropTypes.string,
     question_text: React.PropTypes.node,
