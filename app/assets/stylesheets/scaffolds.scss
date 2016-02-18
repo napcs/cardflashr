@@ -77,18 +77,22 @@ nav {
   }
 }
 #notice {
-  color: green;
+  color: #74b174;
+  background-color: #e8fbe8;
+  border: 1px solid #b2e6b2;
+  padding: 0.5em;
 }
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #c00;
   display: table;
+  color: #fff;
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #c00;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
