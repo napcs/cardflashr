@@ -26,6 +26,23 @@
     <%= f.select :category_id, @categories, :include_blank => true %>
   </div>
 
+  <div class="field">
+    <%= f.label :background_color %><br>
+    <%= f.color_field :background_color %>
+  </div>
+  <div class="field">
+    <%= f.label :foreground_color %><br>
+    <%= f.color_field :foreground_color %>
+  </div>
+  <div class="field">
+    <%= f.label :font %><br>
+    <%= f.text_field :font %>
+  </div>
+  <div class="field">
+    <%= f.label :font_size %><br>
+    <%= f.text_field :font_size %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

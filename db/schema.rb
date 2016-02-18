@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216025145) do
+ActiveRecord::Schema.define(version: 20160218042659) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -37,11 +37,15 @@ ActiveRecord::Schema.define(version: 20160216025145) do
   create_table "decks", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "shared",      default: false
+    t.boolean  "shared",           default: false
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "category_id"
+    t.string   "background_color", default: "#333333"
+    t.string   "foreground_color", default: "#FFFFFF"
+    t.string   "font_size",        default: "16pt"
+    t.string   "font",             default: "Arial"
   end
 
   add_index "decks", ["category_id"], name: "index_decks_on_category_id"

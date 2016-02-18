@@ -17,7 +17,7 @@ class CardsController < ApplicationController
 
   # GET /decks/1/cards/new
   def new
-    @card = Card.new background_color: "#FFFFFF", foreground_color: "#333333", font_size: "16pt", font: "Arial"
+    @card = @deck.cards.build background_color: @deck.background_color, foreground_color: @deck.foreground_color, font_size: @deck.font_size, font: @deck.font
   end
 
   # GET /decks/1/cards/1/edit
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
   # POST /decks/1/cards
   # POST /decks/1/cards.json
   def create
-    @card = Card.new(card_params)
+    @card = @deck.cards.build(card_params)
 
     respond_to do |format|
       if @card.save
@@ -45,8 +45,8 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
-        format.html { redirect_to [@deck, @card], notice: 'Card was successfully updated.' }
-        format.json { render :show, status: :ok, location: [@deck, @card] }
+        format.html { redirect_to [@card.deck, @card], notice: 'Card was successfully updated.' }
+        format.json { render :show, status: :ok, location: [@card.deck, @card] }
       else
         format.html { render :edit }
         format.json { render json: @card.errors, status: :unprocessable_entity }
