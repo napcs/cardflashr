@@ -4,6 +4,22 @@ var Player = React.createClass({
     return {card: this.props.card, cardIndex: this.props.cardIndex};
   },
 
+  // Called after component mounts
+  // Add hammer events to this component.
+  componentDidMount: function() {
+    this.hammer = Hammer(this.getDOMNode());
+    this.hammer.on('swipeleft', this.nextCard);
+    this.hammer.on('swiperight', this.previousCard);
+  },
+
+  // called before component unmounts.
+  // Need to remove any elements so things clean up.
+  componentWillUnmount: function() {
+    this.hammer.off('swipeleft', this.nextCard);
+    this.hammer.off('swiperight', this.previousCard);
+  },
+
+
   loadCard: function(id) {
     let url =  "/player/" + this.props.deck_id + ".json?card=" + id;
 
@@ -19,25 +35,41 @@ var Player = React.createClass({
     });
   },
 
+  isPreviousCardAvailable: function() {
+    return (
+      this.state.cardIndex > 0
+    );
+  },
+
   previousCard: function() {
-    id = Number(this.state.cardIndex) - 1;
-    this.loadCard(id);
+    if (this.isPreviousCardAvailable()) {
+      id = Number(this.state.cardIndex) - 1;
+      this.loadCard(id);
+    }
+  },
+
+  isNextCardAvailable: function () {
+    return (
+      this.state.cardIndex + 1 < this.props.numberOfCards
+    );
   },
 
   nextCard: function() {
-    id = Number(this.state.cardIndex) + 1;
-    this.loadCard(id);
+    if (this.isNextCardAvailable()) {
+      id = Number(this.state.cardIndex) + 1;
+      this.loadCard(id);
+    }
   },
 
   render: function() {
 
-    if (this.state.cardIndex > 0) {
+    if (this.isPreviousCardAvailable()) {
       backButton = <button onClick={e => this.previousCard()}>Back</button>;
     } else {
       backButton = <div>&nbsp;</div>;
     }
 
-    if (this.state.cardIndex + 1 < this.props.numberOfCards) {
+    if (this.isNextCardAvailable()) {
       nextButton = <button onClick={e => this.nextCard()}>Next</button>
     } else {
       nextButton = <div>&nbsp;</div>;
