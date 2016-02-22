@@ -40,6 +40,16 @@
     <%= f.label :question_text %><br>
     <%= f.text_area :question_text %>
   </div>
+
+  <div class="field">
+    <%= f.label :question_image %><br>
+    <%= f.file_field :question_image %>
+    <%= f.label :question_image_remote_url, "or specify a URL" %>
+    <%= f.text_field :question_image_remote_url %>
+  </div>
+
+
+
   <div class="field">
     <%= f.label :answer_text %><br>
     <%= f.text_area :answer_text %>

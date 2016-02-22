@@ -11,19 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218042659) do
+ActiveRecord::Schema.define(version: 20160222072123) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
     t.text     "question_text"
     t.text     "answer_text"
     t.integer  "deck_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.string   "background_color", default: "#333333"
-    t.string   "foreground_color", default: "#FFFFFF"
-    t.string   "font_size",        default: "16pt"
-    t.string   "font",             default: "Arial"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "background_color",            default: "#333333"
+    t.string   "foreground_color",            default: "#FFFFFF"
+    t.string   "font_size",                   default: "16pt"
+    t.string   "font",                        default: "Arial"
+    t.string   "question_image_file_name"
+    t.string   "question_image_content_type"
+    t.integer  "question_image_file_size"
+    t.datetime "question_image_updated_at"
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id"

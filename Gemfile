@@ -21,6 +21,7 @@ gem 'omniauth-google'
 
 gem 'react-rails', '~> 1.6.0'
 gem 'kaminari'
+gem "paperclip", "~> 4.3"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
