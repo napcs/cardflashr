@@ -12,6 +12,7 @@ var Card = React.createClass({
     foreground_color: React.PropTypes.string,
     font_size: React.PropTypes.string,
     font: React.PropTypes.string,
+    question_large_image_url: React.PropTypes.string
   },
 
   showAnswer: function() {
@@ -29,7 +30,9 @@ var Card = React.createClass({
     if (this.state.showAnswer) {
       var content = <p>{this.props.answer_text}</p>;
     } else {
-      var content = <p>{this.props.question_text}</p>
+
+      let image = this.props.question_large_image_url !== "" ? <img src={this.props.question_large_image_url}/> : "";
+      var content = <p>{image}{this.props.question_text}</p>
     }
 
     return (

@@ -86,6 +86,7 @@ var Player = React.createClass({
           foreground_color={this.state.card.foreground_color}
           font={this.state.card.font}
           font_size={this.state.card.font_size}
+          question_large_image_url={this.state.card.question_large_image_url}
         />
         {nextButton}
       </div>

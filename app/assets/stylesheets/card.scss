@@ -2,7 +2,6 @@
   display: flex;           /* establish flex container */
   flex-direction: column;  /* make main axis vertical */
   justify-content: center; /* center items vertically, in this case */
-  align-items: center;     /* center items horizontally, in this case */
 }
 
 .player {
@@ -17,9 +16,15 @@
   align-items: center;     /* center items horizontally, in this case */
   border: 1px solid #ddd;
   box-shadow: 5px 5px 5px #ddd;
-  height: 240px;
-  width: 320px;
   padding: 1em;
   text-align: center;
   font-size: 24px;
+  min-height: 400px;
+  width: 100%;
+
+  img {
+    width: 100%;
+    max-height: auto;
+
+  }
 }

@@ -11,6 +11,11 @@ class PlayerController < ApplicationController
       session[:cards] = @cards.collect{|c| c.id}.shuffle
     end
     @card = @deck.cards.find session[:cards][@card_index]
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @card}
+    end
   end
 
 
