@@ -14,6 +14,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   config.omniauth :facebook, Rails.application.secrets["FB_APP_ID"], Rails.application.secrets["FB_APP_SECRET"]
+  config.omniauth :twitter, Rails.application.secrets["TWITTER_APP_ID"], Rails.application.secrets["TWITTER_APP_SECRET"]
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
