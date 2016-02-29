@@ -24,9 +24,14 @@
         <% end %>
       </nav>
 
-    <main role="main">
-      <%= yield %>
-    </main>
+      <main role="main">
+        <% if notice %>
+          <div id="notice"><%= notice %></div>
+        <% end %>
+
+        <%= yield %>
+
+      </main>
     </div>
 
   </body>

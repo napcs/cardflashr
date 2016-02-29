@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h2> <%= @deck.name %></h2>
 
@@ -7,6 +6,25 @@
 </p>
 
 <%= link_to 'Edit', edit_deck_path(@deck) %> |
-<%= link_to 'Manage', deck_cards_path(@deck) %> |
+<%= link_to 'Add card', new_deck_card_path(@deck) %> |
 <%= link_to 'View', player_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+
+<hr>
+
+
+<% if @dec.cards.any? %>
+  <div class="card_tiles">
+    <% @deck.cards.each do |card| %>
+
+      <div class="tile">
+        <%= react_component('Card', card, {prerender: true}) %>
+
+        <%= link_to 'Edit this card', edit_deck_card_path(@deck, card) %>
+        <%= link_to 'Delete', [@deck, card], method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
+
+<% else %>
+  <p>You don't have any cards in this deck. You should add one.</p>
+<% end %>

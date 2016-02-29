@@ -7,6 +7,7 @@
 .player {
   display: flex;           /* establish flex container */
   flex-direction: row;  /* make main axis vertical */
+
 }
 
 .card {
@@ -26,5 +27,26 @@
     width: 100%;
     max-height: auto;
 
+  }
+}
+
+.card_tiles {
+  display: flex;
+  flex-direction: column;
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 960px) {
+  .card_tiles {
+    flex-direction: row;
+
+    .tile {
+      width: 25%;
+    }
   }
 }
