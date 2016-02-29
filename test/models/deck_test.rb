@@ -54,4 +54,24 @@ class DeckTest < ActiveSupport::TestCase
     assert deck.errors["category_id"].include? "must be filled in to share"
 
   end
+
+
+  test "clone to user" do
+
+    card = cards(:one)
+    deck = card.deck
+    deck.share
+    deck.save
+    user = deck.user
+
+    new_deck = deck.clone_to_user user
+
+    assert new_deck.persisted?
+
+    assert new_deck.name == deck.name
+
+    assert new_deck.cards.count == deck.cards.count
+
+    assert !new_deck.shared
+  end
 end

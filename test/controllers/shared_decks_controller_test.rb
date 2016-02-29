@@ -15,4 +15,18 @@ class SharedDecksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "clone a deck" do
+    card = cards(:one)
+    deck = card.deck
+    deck.share
+    deck.save
+    user = deck.user
+    sign_in user
+
+    post :clone, id: deck.slug
+
+    assert_response :redirect
+
+  end
+
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'shared_decks/', to: 'shared_decks#index'
   get 'shared_decks/:id', to: 'shared_decks#show', as: :shared_deck
+  post 'shared_decks/:id/clone', to: 'shared_decks#clone', as: :clone_shared_deck
 
   resources :categories
 

@@ -31,4 +31,22 @@ class Deck < ActiveRecord::Base
   end
 
 
+  def clone_to_user(user)
+    new_deck = self.dup
+    new_deck.user = user
+
+    # Make sure new deck is not shared.
+    new_deck.unshare
+    new_deck.save
+
+    self.cards.each do |card|
+      new_card = card.dup
+      new_card.deck = new_deck
+      new_card.save
+    end
+
+    new_deck
+
+  end
+
 end

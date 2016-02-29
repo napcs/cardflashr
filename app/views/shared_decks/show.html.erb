@@ -7,6 +7,15 @@
 <p>
   Deck shared <%= time_ago_in_words @deck.published_at %> ago.
 </p>
+
+<p>
+  <% if user_signed_in? %>
+    <%= button_to "Save to your decks", clone_shared_deck_path(@deck.slug) %>
+  <% else %>
+    Sign in or create an account to clone this.
+  <% end %>
+</p>
+
 <hr>
 
 
