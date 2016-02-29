@@ -22,7 +22,7 @@ class DecksControllerTest < ActionController::TestCase
   test "should create deck" do
     sign_in @user
     assert_difference('Deck.count') do
-      post :create, deck: { description: @deck.description, name: @deck.name, shared: @deck.shared, user_id: @deck.user_id }
+      post :create, deck: { description: @deck.description, name: @deck.name,  user_id: @deck.user_id }
     end
 
     assert_redirected_to deck_path(assigns(:deck))
@@ -42,7 +42,7 @@ class DecksControllerTest < ActionController::TestCase
 
   test "should update deck" do
     sign_in @user
-    patch :update, id: @deck, deck: { description: @deck.description, name: @deck.name, shared: @deck.shared, user_id: @deck.user_id }
+    patch :update, id: @deck, deck: { description: @deck.description, name: @deck.name, user_id: @deck.user_id }
     assert_redirected_to deck_path(assigns(:deck))
   end
 

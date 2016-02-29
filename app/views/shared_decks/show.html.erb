@@ -1,0 +1,21 @@
+<h2> <%= @deck.name %></h2>
+
+<p>
+  <%= @deck.description %>
+</p>
+
+<p>
+  Deck shared <%= time_ago_in_words @deck.published_at %> ago.
+</p>
+<hr>
+
+
+<div class="card_tiles">
+  <% @deck.cards.each do |card| %>
+
+    <div class="tile">
+      <%= react_component('Card', card, {prerender: true}) %>
+    </div>
+  <% end %>
+</div>
+

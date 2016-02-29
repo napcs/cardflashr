@@ -1,2 +1,9 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if @recent_deck %>
+  <h3>Most Recently Shared Deck</h3>
+
+  <%=link_to @recent_deck.name, shared_deck_path(@recent_deck.slug) %>
+  <p><%=@recent_deck.description %> - Shared <%= time_ago_in_words @recent_deck.published_at %> ago.</p>
+
+<% end %>
+
+

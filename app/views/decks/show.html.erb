@@ -9,10 +9,22 @@
 <%= link_to 'Add card', new_deck_card_path(@deck) %> |
 <%= link_to 'View', player_path(@deck) %> |
 
+<% if @deck.shared %>
+  Deck shared <%= time_ago_in_words @deck.published_at %> ago.
+  <% path = (url_for controller: "shared_decks", action: "show", id: @deck.slug, only_path: false) %>
+  <p>Deck shared at <%= link_to path, path, {id: "share_url"} %></p>
+  <%= link_to "Unshare", unshare_deck_path(@deck), method: :patch %>
+<% else %>
+  <% if @deck.category  && @deck.description %>
+    <%= link_to "Share", share_deck_path(@deck), method: :patch %>
+  <% else %>
+    <p>To share this deck, ensure it has a category and description.</p>
+  <% end %>
+<% end %>
 <hr>
 
 
-<% if @dec.cards.any? %>
+<% if @deck.cards.any? %>
   <div class="card_tiles">
     <% @deck.cards.each do |card| %>
 
