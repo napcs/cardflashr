@@ -1,4 +1,4 @@
-== CardFlashr
+# CardFlashr
 
 Create decks of flashcards and share them with others. Deck cards are shuffled
 and can be flipped through using arrows or swiping gestures.
