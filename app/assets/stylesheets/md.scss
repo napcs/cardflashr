@@ -1,0 +1,98 @@
+$color-primary                  : #0f9d58;
+$color-secondary                : #4285f4;
+$color-tertiary                 : #d23f31;
+$background-color               : #f9f9f9;
+$button-background-color        : #FFF;
+$button-foreground-color        : #646464;
+$button-cancel-background-color : #646464;
+$text-color: #555;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+}
+
+a {
+  color: $color-primary;
+}
+
+section {
+  padding: 30px 25px;
+}
+
+section > * {
+  margin: 10px
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  position: relative;
+  line-height: 32px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  background-color: $button-background-color;
+  color: $button-foreground_color;
+  padding: 0 1em;
+  text-decoration: none;
+}
+
+.button.narrow {
+  width: 60px;
+}
+
+.button.cancel {
+  background-color: $button-cancel-background-color;
+}
+
+.button.secondary {
+  background-color: $color-secondary;
+  color: #fff;
+}
+
+.button.primary {
+  background-color: $color-primary;
+  color: #fff;
+}
+
+.button.tertiary {
+  background-color: $color-tertiary;
+  color: #fff;
+}
+
+.button.raised {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.button.raised:active {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+/* Misc */
+.center {
+  text-align: center;
+}
+
+.label {
+  padding: 0 16px;
+}
+
+.label.secondary {
+  color: $color-secondary;
+}
+
+.label.tertiary {
+  color: $color-tertiary;
+}
+
+
+table {
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+  th {text-align: left; }
+}

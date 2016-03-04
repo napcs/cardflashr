@@ -1,0 +1,73 @@
+/* CSS for the navbar of the page.  */
+
+#menu {
+  border-bottom: 1px solid #ddd;
+  justify-content: flex-start;
+
+  /* On small screens, we are no longer using row direction but column */
+  flex-direction: column;
+
+  // a little space inside the menu itself
+  padding: 0.25em;
+
+  // make the acccount info show up first.
+  .account {order: 1 }
+  a {order: 2}
+
+  // each individual menu ite, whether a link or span.
+  a, span {
+    flex: flex-grow;
+    padding: 0.5em;
+    text-decoration: none;
+  }
+
+  // border that button
+  a {
+    border: 1px solid #333;
+  }
+}
+
+
+// hidden when closed by default. Use JS to open menu on small screens.
+// Styles later on will override this on larger screens.
+#menu {
+  display: none;
+}
+
+// flex menu when open. JS applies this class.
+#menu.open {
+  display: flex;
+}
+
+.menu-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media all and (min-width: 700px) {
+  // no more need for mobile menu button.
+  .menu-button { display: none;}
+
+  // flex menu and make horizontal
+  #menu {
+    display: flex;
+    flex-direction: row;
+
+    // make account show up last after other buttons
+    .account {order: 2 }
+    a {order: 1}
+  }
+}
+
+@media all and (min-width: 960px) {
+  // horizontal menu
+  #menu {
+
+    // add margins between links
+    a {margin-right: 1em; }
+
+    // make the username go all the way to the right.
+    .account { margin-left: auto; align-self: flex-end; }
+  }
+}

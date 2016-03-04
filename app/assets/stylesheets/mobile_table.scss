@@ -1,0 +1,38 @@
+
+// last element in all tables aligns right.
+td:last-child {
+  text-align: right;
+}
+
+// anything < 600px gets rendered totally differently.
+@media screen and (max-width: 600px) {
+
+  // hide heading cells. We'll create them with data attr below.
+  table th { display: none ;}
+
+  table tr {
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 2px solid #ddd;
+  }
+
+  table td {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: 1px dotted #ccc;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+    margin-bottom: 1em;
+  }
+
+  // Use CSS content to add in labels.
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}

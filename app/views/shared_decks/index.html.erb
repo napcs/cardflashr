@@ -1,3 +1,9 @@
+<h2>Shared Decks</h2>
+
+<p>These decks have been created by users of this site and can be easily added
+to your account. Choose a deck to preview its cards and copy it to your account.</p>
+
+
 <% if @decks.any? %>
   <table>
     <thead>
@@ -12,9 +18,9 @@
       <% @decks.each do |deck| %>
 
         <tr>
-          <td><%= link_to deck.name, shared_deck_path(deck.slug) %></td>
-          <td><%= deck.cards.count %></td>
-          <td><%= time_ago_in_words deck.updated_at %> ago</td>
+          <td data-label="Deck name"><%= link_to deck.name, shared_deck_path(deck.slug) %></td>
+          <td data-label="Number of cards"><%= deck.cards.count %></td>
+          <td data-label="Last updated"><%= time_ago_in_words deck.updated_at %> ago</td>
         </tr>
       <% end %>
     </tbody>

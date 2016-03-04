@@ -10,7 +10,7 @@
 
 <p>
   <% if user_signed_in? %>
-    <%= button_to "Save to your decks", clone_shared_deck_path(@deck.slug) %>
+    <%= button_to "Save to your decks", clone_shared_deck_path(@deck.slug), {class: "button primary"} %>
   <% else %>
     Sign in or create an account to clone this.
   <% end %>
