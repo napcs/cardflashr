@@ -41,6 +41,9 @@ class Deck < ActiveRecord::Base
 
     self.cards.each do |card|
       new_card = card.dup
+
+      # paperclip won't duplicate image properly unless we are explicit.
+      new_card.question_image = card.question_image
       new_card.deck = new_deck
       new_card.save
     end
